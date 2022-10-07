@@ -15,8 +15,7 @@ const db = knex(
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: {
-        rejectUnauthorized: true,
-        requestCert: true
+        rejectUnauthorized: false
       }
     },
   }
