@@ -1,1 +1,3 @@
 # smartbrain-face-detection-api
+
+This project was created as part of the Zero to Mastery Complete Web Developer course. It utilizes React.js, Node.js, Express.js, and PostgreSQL. Additional functionality beyond what was done in the course includes deleting users, calculating and displaying rank out of all users, recognizing and incrementing user score for all detected faces in an image, and displaying error messages and user profile.
