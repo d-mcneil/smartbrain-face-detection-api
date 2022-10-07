@@ -1,7 +1,6 @@
 import Clarifai from "clarifai";
-import apiKey from "./apiKey.js";
 
-const app = new Clarifai.App({ apiKey });
+const app = new Clarifai.App({ apiKey: process.env.API_KEY });
 
 // example pictures
 // https://samples.clarifai.com/face-det.jpg
