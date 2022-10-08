@@ -29,7 +29,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => res.json("success"));
 app.post("/sign-in", (req, res) => {handleSignIn(req, res, db, bcrypt)});
