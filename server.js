@@ -20,8 +20,13 @@ const db = knex(
     },
   }
 );
+
 const app = express();
 const PORT = process.env.PORT;
+const corsOptions = {
+  origin: process.env.ORIGIN_URL,
+  optionsSuccessStatus: 200
+};
 
 app.use(express.json());
 app.use(cors());
