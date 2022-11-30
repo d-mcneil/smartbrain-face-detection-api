@@ -1,5 +1,5 @@
 const getRankRespondUser = (db, user, res) => {
-    const subquery = db.select('id').from('users').rank('rank', db.raw('order by score desc')).as('rankings');
+    const subquery = db.select('id').from('users_smartbrain').rank('rank', db.raw('order by score desc')).as('rankings');
     return db.select('rank').from(subquery).where({id: user[0].id}).then(data => {
         return res.json({
             id: user[0].id,

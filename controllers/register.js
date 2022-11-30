@@ -5,7 +5,7 @@ const handleRegister = (req, res, db, bcrypt) => {
   if (!name || !email || !password){
       return res.status(400).json("Incorrect form submission: all fields are required");
   }
-  db.select('email').from('users').where({email}).then(array => {
+  db.select('email').from('users_smartbrain').where({email}).then(array => {
     if (array.length) {
       return res.status(400).json("Email address is already being used; select another email address.");
     } else {
@@ -14,8 +14,8 @@ const handleRegister = (req, res, db, bcrypt) => {
           bcrypt.hash(password, salt, function(err, hash) {
             if (!err) {
               db.transaction(trx => {
-                trx.insert({email, hash}).into('login').returning('id').then(data => 
-                  trx("users").insert({
+                trx.insert({email, hash}).into('login_smartbrain').returning('id').then(data => 
+                  trx("users_smartbrain").insert({
                     id: data[0].id,
                     email: email,
                     name: name,

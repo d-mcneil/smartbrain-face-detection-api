@@ -5,7 +5,7 @@ const handleSignIn = (req, res, db, bcrypt) => {
     if (!email || !password){
         return res.status(400).json("Incorrect form submission: all fields required")
     }
-    db.select('hash').from('login').where({email})
+    db.select('hash').from('login_smartbrain').where({email})
         .then(data => {
         if (data.length){
             return bcrypt.compare(password, data[0].hash);
@@ -14,7 +14,7 @@ const handleSignIn = (req, res, db, bcrypt) => {
         }
         }).then(isValidPassword => {
             if (isValidPassword) {
-                db.select('*').from('users').where({email}).then(user => getRankRespondUser(db, user, res))
+                db.select('*').from('users_smartbrain').where({email}).then(user => getRankRespondUser(db, user, res))
                 .catch(err => res.status(400).json('Error fetching user information'));
 
             } else {
