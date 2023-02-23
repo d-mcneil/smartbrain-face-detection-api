@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-controllers/apiKey.js
+apiKey.js
 databaseInfo.js
 
 # testing
